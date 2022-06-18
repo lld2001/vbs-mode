@@ -246,7 +246,9 @@ Argument EVALP is whether to sent this to Eval (nil) or Execute (t)."
 
   (let ((arg (buffer-string))
         (temp (make-temp-file "vbsrepl" nil ".vbs"))
-        (process-coding-system-alist '(("cmdproxy" gbk-dos . gbk-dos))))
+        (process-coding-system-alist '(("cmdproxy" gbk-dos . gbk-dos)))
+        (coding-system-for-write 'gbk-dos)
+        (coding-system-for-read 'gbk-dos))
     (with-temp-file temp
       (insert arg))
     (message (shell-command-to-string (format "cscript %s" temp)))))

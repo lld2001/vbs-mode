@@ -9,17 +9,17 @@
 ;; Version: 2.1
 
 ;;  This program is NOT part of GNU Emacs.
-;; 
+;;
 ;;  This program is free software; you can redistribute it and/or
 ;;  modify it under the terms of the GNU General Public License as
 ;;  published by the Free Software Foundation; either version 2 of
 ;;  the License, or (at your option) any later version.
-;;  
+;;
 ;;  This program is distributed in the hope that it will be useful,
 ;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 ;;  GNU General Public License for more details.
-;;  
+;;
 ;;  You should have received a copy of the GNU General Public License
 ;;  along with GNU Emacs; if not, write to the Free Software
 ;;  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
@@ -41,7 +41,7 @@
 ;;    (setq auto-mode-alist
 ;;       (append '(("\\.\\(vbs\\|wsf\\)$" . vbscript-mode))
 ;;               auto-mode-alist))
-;; 
+;;
 ;; To start the repl, load a VBScript file, make sure you're in
 ;; visual-basic mode, and hit C-c C-z (or whatever you mapped to
 ;; vbs-setup-repl).  To execute from the beginning of the line (or the
@@ -163,6 +163,7 @@
     (define-key map (kbd "C-c C-e") #'vbs-repl-execute)
     (define-key map (kbd "C-c C-r") #'vbs-repl-execute-region)
     (define-key map (kbd "C-M-x")   #'vbs-repl-execute-sub)
+    (define-key map (kbd "C-c C-c")   #'vbs-repl-execute-buffer)
     map))
 
 ;;;###autoload
@@ -186,4 +187,5 @@
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.\\(vbs?\\|wsf\\)$" . vbscript-mode))
 
+(provide 'vbscript-mode)
 ;;; vbscript-mode.el ends here

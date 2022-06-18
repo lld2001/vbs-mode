@@ -245,10 +245,11 @@ Argument EVALP is whether to sent this to Eval (nil) or Execute (t)."
   (interactive)
 
   (let ((arg (buffer-string))
-        (temp (make-temp-file "vbsrepl" nil ".vbs")))
+        (temp (make-temp-file "vbsrepl" nil ".vbs"))
+        (process-coding-system-alist '(("cmdproxy" gbk-dos . gbk-dos))))
     (with-temp-file temp
       (insert arg))
-    (shell-command-to-string (format "wscript %s" temp))))
+    (message (shell-command-to-string (format "cscript %s" temp)))))
 
 (defun vbs-repl-execute (arg)
   "Evaluate VBScript expression before point.
